@@ -1,0 +1,10 @@
+#include<algorithm>
+
+sort(a,a+n); 升序排序给定区间 注意不是a+n-1
+改升序降序：
+bool compare(int a,int b)
+{
+      return a<b;   //升序排列，如果改为return a>b，则为降序
+
+}
+sort(a,a+n,compare);
