@@ -1,4 +1,4 @@
-package com.typeng.practice;
+package com.typeng.algorithm.practice;
 
 /**
  * 练习题抽象类.

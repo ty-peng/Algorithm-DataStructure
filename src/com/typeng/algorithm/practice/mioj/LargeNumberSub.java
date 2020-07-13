@@ -1,4 +1,4 @@
-package com.typeng.practice.mioj;
+package com.typeng.algorithm.practice.mioj;
 
 /**
  * 大数相减.
