@@ -1,5 +1,6 @@
 package com.typeng.algorithm.practice.interview;
 
+import java.util.PriorityQueue;
 import java.util.Scanner;
 
 import com.typeng.algorithm.practice.AbstractQuestion;
@@ -11,7 +12,7 @@ import com.typeng.algorithm.practice.AbstractQuestion;
  * @author ty-peng
  * @date 2020-07-13 16:48
  */
-public class Question1 extends AbstractQuestion {
+public class MinTimeOfSum extends AbstractQuestion {
 
     @Override
     public Object input() {
@@ -24,23 +25,30 @@ public class Question1 extends AbstractQuestion {
             int num = sc.nextInt();
             array[i] = num;
         }
+        sc.close();
         return array;
     }
 
     @Override
     public String solution(Object data) {
         int[] array = (int[])data;
+        PriorityQueue<Integer> queue = new PriorityQueue<Integer>(array.length);
+        for (int i : array) {
+            queue.add(i);
+        }
         int time = 0;
-        int sum = array[0];
-        for (int i = 1; i < array.length; i++) {
-            sum += array[i];
+        while (queue.size() >= 2) {
+            int a = queue.remove();
+            int b = queue.remove();
+            int sum = a + b;
             time += sum;
+            queue.add(sum);
         }
         return String.valueOf(time);
     }
 
     public static void main(String[] args) {
-        AbstractQuestion question = new Question1();
+        AbstractQuestion question = new MinTimeOfSum();
         question.doThat();
     }
 
